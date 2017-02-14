@@ -116,7 +116,7 @@ class SendTopicTest(appunit.AppTest):
         self.wode.LaunchTopic()
         #判断普通话题是否发送正确
         self.common.waitUntilPresent(By.NAME, variable.Account.USERNAME)
-        self.assertResult.assertByImage("content", "image46", 0.90)
+        self.assertResult.assertByImage("content", "image46", 0.85)
         
     def test_sendTopic4(self):
         '''发观点投票'''
