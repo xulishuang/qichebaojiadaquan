@@ -65,7 +65,7 @@ class BranchName(object):
     
     Audi="奥迪"
     Audi_BRANCH1="奥迪Q3"
-    Audi_MODEL1="2017款 30 TFSI 时尚型"
+    Audi_MODEL1="2016款 30 TFSI 时尚型"
     Audi_BRANCH2="奥迪Q5"
     Audi_MODEL2="2017款 40TFSI 进取型"
     

@@ -67,7 +67,7 @@ class FriendsToHelpTest(appunit.AppTest):
         self.friendsToHelp.setPerformanceSelected("操控")
         self.friendsToHelp.setPerformanceSelected("油耗")
         #判断当前页面是否正确
-        self.assertResult.assertByImage("content", "image35", 0.90)
+        self.assertResult.assertByImage("content", "image35", 0.85)
         #发送到朋友圈
         self.common.touchText("发给朋友帮我选车")
         self.common.touchText("朋友圈")
@@ -105,7 +105,7 @@ class FriendsToHelpTest(appunit.AppTest):
         self.common.touchText("帮买车社区")
         #判断当前页面是否正确
         self.common.waitUntilPresent(By.NAME, "提交", timeout=15)
-        self.assertResult.assertByImage("content", "image39", 0.88) 
+        self.assertResult.assertByImage("content", "image39", 0.80) 
         #点击提交
         self.common.touchText("提交")
         
