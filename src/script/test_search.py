@@ -33,7 +33,7 @@ class SearchTest(appunit.AppTest):
         image=self.function.get_screenshot_by_element(element)
         image.write_to_file(PATH2+"\\aw\\image\\actual", "image01")
         load = self.function.load_image(PATH2+"\\aw\image\expected\image01.png")  
-        result = image.same_as(load, 0.95)  
+        result = image.same_as(load, 0.90)  
         try:
             self.assertTrue(result)
         except Exception:

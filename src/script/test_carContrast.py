@@ -26,7 +26,7 @@ class CarContrastTest(appunit.AppTest):
         self.carContrast.startContrast()
         self.common.waitUntilPresent(By.ID, "parameter_cartypelist")
         #判断对比结果是否正确
-        self.assertResult.assertByImage("content", "image22", 0.94)
+        self.assertResult.assertByImage("content", "image22", 0.90)
 #         
 if __name__ == "__main__":
     suite = unittest.TestSuite()
