@@ -52,7 +52,7 @@ if __name__ == '__main__':
                           title='汽车报价大全自动化测试报告',
                           description='用例执行情况:360 N4  android版本6.0')
     
-    discover=unittest.defaultTestLoader.discover(path+'/script', pattern='test_*.py')
+    discover=unittest.defaultTestLoader.discover(path+'/script', pattern='test_search.py')
      
     runner.run(discover)
     fp.close() #关闭生成的报告

@@ -94,6 +94,10 @@ class Common(object):
         textfields = self.driver.find_elements_by_class_name("android.widget.EditText")
         textfields[0].send_keys(param1)
         textfields[1].send_keys(param2)
+    
+    def inputTextById(self,id_,param):
+        element=self.driver.find_element_by_id(id_)
+        element.send_keys(param)
         
     #返回
     def back(self):

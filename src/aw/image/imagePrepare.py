@@ -78,6 +78,49 @@ class ImagePrepare(appunit.AppTest):
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image08")
     
+    def test_search5(self):
+        '''搜索框下的联想词跳转'''
+        self.common.touchId("searchEt")
+        if self.common.checkTextExist("清空"):
+            self.common.touchText("清空")
+        self.common.inputTextById("searchEt", "奥迪")
+        self.common.waitUntilPresent(By.ID, "brand_name_tv")
+        element=self.driver.find_element_by_id("content")
+        self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image09")
+        
+        self.common.touchText("奥迪A4L")
+        self.common.waitUntilPresent(By.NAME, "询底价")
+        element=self.driver.find_element_by_id("content")
+        self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image0a")
+        
+        self.common.back()
+        self.common.touchText("取消")
+        self.common.touchId("searchEt")
+        element=self.driver.find_element_by_id("content")
+        self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image0b")
+        
+    def test_search6(self):
+        '''搜索页热门车型'''
+        self.common.touchId("searchEt")
+        if self.common.checkTextExist("清空"):
+            self.common.touchText("清空")
+        element=self.driver.find_element_by_id("content")
+        self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image0c")
+        
+        self.common.touchText("哈弗H6")
+        self.common.waitUntilPresent(By.NAME, "询底价")
+        element=self.driver.find_element_by_id("content")
+        self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image0d")
+        
+        self.common.back()
+        self.common.touchText("清空")
+        element=self.driver.find_element_by_id("content")
+        self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image0e")
+        
+        self.common.touchText("取消")
+        element=self.driver.find_element_by_id("homepage_quick_entrance_gridview")
+        self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image0f")
+    
     def test_enquiry(self):
         '''询价测试'''
         self.common.swipeUp()
@@ -397,10 +440,12 @@ class ImagePrepare(appunit.AppTest):
     
 if __name__ == "__main__":
     suite = unittest.TestSuite()   
-    suite.addTest(ImagePrepare("test_search1"))
+#     suite.addTest(ImagePrepare("test_search1"))
 #     suite.addTest(ImagePrepare("test_search2"))
 #     suite.addTest(ImagePrepare("test_search3"))
 #     suite.addTest(ImagePrepare("test_search4")) 
+    suite.addTest(ImagePrepare("test_search5"))
+    suite.addTest(ImagePrepare("test_search6"))
 #     suite.addTest(ImagePrepare("test_enquiry"))
 #     suite.addTest(ImagePrepare("test_carContrast"))
 #     suite.addTest(ImagePrepare("test_friendsToHelp1"))
