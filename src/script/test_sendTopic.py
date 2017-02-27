@@ -155,8 +155,8 @@ class SendTopicTest(appunit.AppTest):
         
 if __name__ == "__main__":
     suite = unittest.TestSuite()
-    suite.addTest(SendTopicTest("test_sendTopic1"))
-    suite.addTest(SendTopicTest("test_sendTopic2"))
+#     suite.addTest(SendTopicTest("test_sendTopic1"))
+#     suite.addTest(SendTopicTest("test_sendTopic2"))
     suite.addTest(SendTopicTest("test_sendTopic3"))
-    suite.addTest(SendTopicTest("test_sendTopic4"))
+#     suite.addTest(SendTopicTest("test_sendTopic4"))
     unittest.TextTestRunner().run(suite)

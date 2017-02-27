@@ -24,8 +24,8 @@ class Account(object):
 class Device(object):
     #终端系统版本/设备名
     PLATFORM_NAME='Android'
-    PLATFORM_VERSION='4.4.4'
-    DEVICE_NAME='b046d470'
+    PLATFORM_VERSION='6.0.1'
+    DEVICE_NAME='c2b5813'
     
 class App(object):
     #app存放路径/包名/activity名称/

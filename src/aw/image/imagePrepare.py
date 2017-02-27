@@ -26,13 +26,13 @@ class ImagePrepare(appunit.AppTest):
         '''输入关键字，搜索结果包含车型、文章、帖子'''
         element=self.driver.find_element_by_id("searchEt")
         element.send_keys(variable.SearchFor.SEARCH1)
-        sleep(2)
+        self.common.waitUntilPresent(By.ID, "brand_name_tv")
         element=self.driver.find_element_by_id("content")       
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image01")       
         
         element=self.driver.find_element_by_id("brand_name_tv")
         element.click()
-        sleep(12)
+        self.common.waitUntilPresent(By.ID, "brand_name_tv")
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image02")
     
@@ -40,13 +40,13 @@ class ImagePrepare(appunit.AppTest):
         '''输入关键字，搜索结果不包含车型，包含文章、帖子'''
         element=self.driver.find_element_by_id("searchEt")
         element.send_keys(variable.SearchFor.SEARCH2)
-        sleep(2)
+        self.common.waitUntilPresent(By.ID, "brand_name_tv")
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image03")
          
         element=self.driver.find_element_by_id("brand_name_tv")
         element.click()
-        sleep(5)
+        self.common.waitUntilPresent(By.ID, "news_title")
         element=self.driver.find_element_by_id("indicator")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image04") 
     
@@ -54,13 +54,13 @@ class ImagePrepare(appunit.AppTest):
         '''输入关键字，搜索结果不包含车型、文章，包含帖子'''
         element=self.driver.find_element_by_id("searchEt")
         element.send_keys(variable.SearchFor.SEARCH3)
-        sleep(5)
+        self.common.waitUntilPresent(By.ID, "brand_name_tv")
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image05")
          
         element=self.driver.find_element_by_id("brand_name_tv")
         element.click()
-        sleep(5)
+        self.common.waitUntilPresent(By.ID, "news_comment_count")
         element=self.driver.find_element_by_id("indicator")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image06")   
      
@@ -68,44 +68,43 @@ class ImagePrepare(appunit.AppTest):
         '''输入关键字，搜索结果不包含车型、文章、帖子'''
         element=self.driver.find_element_by_id("searchEt")
         element.send_keys(variable.SearchFor.SEARCH4)
-        sleep(2)
+        self.common.waitUntilPresent(By.ID, "brand_name_tv")
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image07")
          
         element=self.driver.find_element_by_id("brand_name_tv")
         element.click()
-        sleep(8)
+        self.common.waitUntilPresent(By.NAME, "暂无数据")
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image08")
     
     def test_enquiry(self):
         '''询价测试'''
-        sleep(5)
         self.common.swipeUp()
         self.common.touchSlideText(Text.BranchName.Benz)
         self.common.touchSlideText(Text.BranchName.Benz_BRANCH1)
-        sleep(5)
+        self.common.waitUntilPresent(By.NAME, "询底价")
         self.common.touchSlideText("询底价")
-        sleep(5)
+        self.common.waitUntilPresent(By.CLASS_NAME, "android.widget.EditText")
         self.common.inputText(variable.Account.NAME, variable.Account.NUMBER)
         sleep(2)
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image11")
            
         self.common.touchText("提交")
-        sleep(5)
+        self.common.waitUntilPresent(By.NAME, "知道了")
         l=self.common.getSize()
         self.function.get_screenshot_by_custom_size(0, l[1]*0.25, l[0], l[1]*0.75).write_to_file(PATH2+"\image\expected", "image12")  
             
         self.common.touchText("知道了")
-        sleep(3)
+        self.common.waitUntilPresent(By.NAME, "询底价") 
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image13")
             
         self.common.multiBack(2);
         self.common.touchText(Text.HomePage.WODE)
         self.common.touchText("询价记录")
-        sleep(5)
+        self.common.waitUntilPresent(By.ID, "askprice_record_carname_txt")
         self.function.get_screenshot_by_custom_size(10,219,710,379).write_to_file(PATH2+"\image\expected", "image14")
     
     def test_carContrast(self): 
@@ -131,7 +130,7 @@ class ImagePrepare(appunit.AppTest):
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image21")
         
         self.common.touchText("开始对比")
-        sleep(10)
+        self.common.waitUntilPresent(By.ID, "parameter_cartypelist")
         
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image22")
@@ -165,7 +164,7 @@ class ImagePrepare(appunit.AppTest):
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image32")
         
         self.common.touchText("提交")
-        sleep(5)
+        self.common.waitUntilPresent(By.NAME, "发起投票")
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image33")
     
@@ -186,7 +185,7 @@ class ImagePrepare(appunit.AppTest):
   
         self.common.touchText("发给朋友帮我选车")
         self.common.touchText("朋友圈")
-        sleep(10)
+        sleep(5)
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image36")
       
@@ -218,12 +217,12 @@ class ImagePrepare(appunit.AppTest):
         #发送到帮买车社区
         self.common.touchText("发给朋友帮我选车")
         self.common.touchText("帮买车社区")
-        sleep(3)
+        self.common.waitUntilPresent(By.NAME, "提交", timeout=15)
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image39") 
         #点击提交
         self.common.touchText("提交")
-        sleep(5)
+        self.common.waitUntilPresent(By.NAME, "发起投票")
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image3a")
         #进入话题
@@ -250,7 +249,7 @@ class ImagePrepare(appunit.AppTest):
         #发送到朋友圈
         self.common.touchText("发给朋友帮我选车")
         self.common.touchText("朋友圈")
-        sleep(6)
+        sleep(5)
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image3d")
         
@@ -318,7 +317,7 @@ class ImagePrepare(appunit.AppTest):
         self.common.touchText("提交")
         #进入我的社区--话题  
         self.wode.LaunchTopic()
-        sleep(2)
+        self.common.waitUntilPresent(By.NAME, variable.Account.USERNAME)
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image44")
         
@@ -357,7 +356,7 @@ class ImagePrepare(appunit.AppTest):
         self.common.touchText("提交")
         #进入我的社区--话题  
         self.wode.LaunchTopic()
-        sleep(2)
+        self.common.waitUntilPresent(By.NAME, variable.Account.USERNAME)
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image46")
         
@@ -392,22 +391,22 @@ class ImagePrepare(appunit.AppTest):
         self.common.touchText("提交")
         #进入我的社区--话题  
         self.wode.LaunchTopic()
-        sleep(2)
+        self.common.waitUntilPresent(By.NAME, variable.Account.USERNAME)
         element=self.driver.find_element_by_id("content")
         self.function.get_screenshot_by_element(element).write_to_file(PATH2+"\image\expected", "image48")
     
 if __name__ == "__main__":
     suite = unittest.TestSuite()   
-#     suite.addTest(ImagePrepare("test_search1"))
+    suite.addTest(ImagePrepare("test_search1"))
 #     suite.addTest(ImagePrepare("test_search2"))
 #     suite.addTest(ImagePrepare("test_search3"))
 #     suite.addTest(ImagePrepare("test_search4")) 
 #     suite.addTest(ImagePrepare("test_enquiry"))
 #     suite.addTest(ImagePrepare("test_carContrast"))
-    suite.addTest(ImagePrepare("test_friendsToHelp1"))
-    suite.addTest(ImagePrepare("test_friendsToHelp2"))
-    suite.addTest(ImagePrepare("test_friendsToHelp3"))
-    suite.addTest(ImagePrepare("test_friendsToHelp4"))
+#     suite.addTest(ImagePrepare("test_friendsToHelp1"))
+#     suite.addTest(ImagePrepare("test_friendsToHelp2"))
+#     suite.addTest(ImagePrepare("test_friendsToHelp3"))
+#     suite.addTest(ImagePrepare("test_friendsToHelp4"))
 #     suite.addTest(ImagePrepare("test_sendTopic1"))
 #     suite.addTest(ImagePrepare("test_sendTopic2"))
 #     suite.addTest(ImagePrepare("test_sendTopic3"))

@@ -73,7 +73,7 @@ class FriendsToHelpTest(appunit.AppTest):
         self.common.touchText("朋友圈")
         
         #判断当前页面是否正确
-        self.common.waitUntilPresent(By.NAME, "WeChat")
+#         self.common.waitUntilPresent(By.NAME, "登录微信")
         self.assertResult.assertByImage("content", "image36", 0.95) 
         self.common.back()
         #判断当前页面是否正确
@@ -138,7 +138,7 @@ class FriendsToHelpTest(appunit.AppTest):
         self.common.touchText("发给朋友帮我选车")
         self.common.touchText("朋友圈")
         #判断当前页面是否正确
-        self.common.waitUntilPresent(By.NAME, "WeChat")
+#         self.common.waitUntilPresent(By.NAME, "登录微信")
         self.assertResult.assertByImage("content", "image3d", 0.95) 
         self.common.back()
         #判断当前页面是否正确

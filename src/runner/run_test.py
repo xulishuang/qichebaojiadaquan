@@ -50,7 +50,7 @@ if __name__ == '__main__':
     fp=open(filename, 'wb')
     runner=HTMLTestRunner(stream=fp,
                           title='汽车报价大全自动化测试报告',
-                          description='用例执行情况: android')
+                          description='用例执行情况:360 N4  android版本6.0')
     
     discover=unittest.defaultTestLoader.discover(path+'/script', pattern='test_*.py')
      

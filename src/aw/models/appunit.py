@@ -35,6 +35,7 @@ class AppTest(unittest.TestCase):
 #         desired_caps['app'] = PATH(variable.App.APP_PATH)
         desired_caps['appPackage'] = variable.App.APP_PACKAGE
         desired_caps['appActivity'] = variable.App.APP_ACTIVITY
+#         desired_caps['waitappActivity'] = ".MainActivity"
         desired_caps['unicodeKeyboard'] = "True"
         desired_caps['resetKeyboard'] = "True"
 #         desired_caps['automationName'] = "Selendroid"
